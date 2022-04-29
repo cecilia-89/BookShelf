@@ -42,8 +42,25 @@ class Book(models.Model):
 
 class Bookshelf(models.Model):
     customer = models.ForeignKey(Customer, on_delete=CASCADE)
-    book = models.ForeignKey(Book, on_delete=SET_NULL, null=True)
+
+    def __str__(self):
+       return str(self.customer) + "'s" +' bookshelf'
+
+class Shelved(models.Model):
+    book = models.ForeignKey(Book, on_delete=CASCADE, null=True)
+    bookshelf = models.ForeignKey(Bookshelf, on_delete=CASCADE, null=True)
+
+    def __str__(self):
+        return self.book.title
 
 
+class Archive(models.Model):
+    customer = models.ForeignKey(Customer, on_delete=CASCADE, null=True)
 
+    def __str__(self):
+       return str(self.customer) + "'s" +'archive'
+
+class Archived(models.Model):
+    shelved = models.ForeignKey(Shelved, on_delete=CASCADE, null=True)
+    archive = models.ForeignKey(Archive, on_delete=CASCADE, null=True)
 
