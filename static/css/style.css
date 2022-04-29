@@ -12,6 +12,11 @@
 }
 
 .books {
-    
     display:flex;
+    flex-wrap:wrap;
+}
+
+.books > div{
+    
+    margin:10px;
 }

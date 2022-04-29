@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel='stylesheet' type='text/css' href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div>
+
+		<h3>All books</h3>
+
+        <div class="books">
+            <div>
+                {% for comic in comicBooks|dictsort:"pub_date" %}
+                <div>{{ comic.title }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                {% for action in actionBooks|slice:":3" %}
+                <div>{{ action.title }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                {% for thriller in thrillerBooks|slice:":3" %}
+                <div>{{ thriller.title }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                {% for contemporary in contemporaryBooks %}
+                <div>{{ contemporary.title }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                {% for fantasy in fantasyBooks %}
+                <div>{{ fantasy.title }}</div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

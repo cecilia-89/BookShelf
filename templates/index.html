@@ -19,27 +19,27 @@
 
         <div class="books">
             <div>
-                {% for comic in comicBooks %}
+                {% for comic in comicBooks|slice:":3" %}
                 <div>{{ comic.title }}</div>
                 {% endfor %}
             </div>
             <div>
-                {% for action in actionBooks %}
+                {% for action in actionBooks|slice:":3" %}
                 <div>{{ action.title }}</div>
                 {% endfor %}
             </div>
             <div>
-                {% for thriller in thrillerBooks %}
+                {% for thriller in thrillerBooks|slice:":3" %}
                 <div>{{ thriller.title }}</div>
                 {% endfor %}
             </div>
             <div>
-                {% for contemporary in contemporaryBooks %}
+                {% for contemporary in contemporaryBooks|slice:":3" %}
                 <div>{{ contemporary.title }}</div>
                 {% endfor %}
             </div>
             <div>
-                {% for fantasy in fantasyBooks %}
+                {% for fantasy in fantasyBooks|slice:":3" %}
                 <div>{{ fantasy.title }}</div>
                 {% endfor %}
             </div>
