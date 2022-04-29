@@ -1,7 +1,13 @@
+/* General styling */
+
 * {
     margin:0;
     padding:0;
 }
+
+
+
+/* Booklist styling */
 
 .image{
     background-image: url(../images/woman-5351572_1280.png);
@@ -16,7 +22,21 @@
     flex-wrap:wrap;
 }
 
-.books > div{
-    
-    margin:10px;
+
+/* Book page styling */
+
+#book-wrapper {
+    display:flex;
+    margin-top: 20px;
+}
+
+#book-wrapper img {
+    width: 25vw;
+    height:70vh;
+    object-fit: contain;
+    margin-left: 50px;
+}
+
+#book-wrapper div:nth-child(2){
+    margin-left: 30px;
 }

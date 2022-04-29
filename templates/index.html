@@ -12,6 +12,7 @@
 
 </head>
 <body>
+    {% block content %}
     <div>
         <div class="image">
 
@@ -35,6 +36,7 @@
             </div>
             <div>
                 {% for contemporary in contemporaryBooks|slice:":3" %}
+
                 <div>{{ contemporary.title }}</div>
                 {% endfor %}
             </div>
@@ -47,5 +49,7 @@
 
 
     </div>
+
+    {% endblock %}
 </body>
 </html>

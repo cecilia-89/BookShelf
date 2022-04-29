@@ -7,6 +7,9 @@ class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=CASCADE)
     userName = models.CharField(max_length=50, null=True,blank=True)
 
+    def __str__(self):
+        return self.user.userName
+
 class Category(models.Model):
     type = models.CharField(max_length=50, null=True,blank=True)
 
@@ -28,6 +31,14 @@ class Book(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def bookUrl(self):
+        try:
+            url = self.image.url
+        except:
+            url = ''
+        return url
 
 class Bookshelf(models.Model):
     customer = models.ForeignKey(Customer, on_delete=CASCADE)

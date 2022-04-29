@@ -23,22 +23,22 @@
                 {% endfor %}
             </div>
             <div>
-                {% for action in actionBooks|slice:":3" %}
+                {% for action in actionBooks|dictsort:"pub_date" %}
                 <div>{{ action.title }}</div>
                 {% endfor %}
             </div>
             <div>
-                {% for thriller in thrillerBooks|slice:":3" %}
+                {% for thriller in thrillerBooks|dictsort:"pub_date" %}
                 <div>{{ thriller.title }}</div>
                 {% endfor %}
             </div>
             <div>
-                {% for contemporary in contemporaryBooks %}
+                {% for contemporary in contemporaryBooks|dictsort:"pub_date" %}
                 <div>{{ contemporary.title }}</div>
                 {% endfor %}
             </div>
             <div>
-                {% for fantasy in fantasyBooks %}
+                {% for fantasy in fantasyBooks|dictsort:"pub_date" %}
                 <div>{{ fantasy.title }}</div>
                 {% endfor %}
             </div>
