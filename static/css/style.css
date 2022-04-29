@@ -88,12 +88,6 @@
 }
 
 
-.login-footer {
-    background: rgba(248, 245, 245, 0.808);
-    width: inherit;
-
-}
-
 .register, .login {
 
     width:20vw;
@@ -123,8 +117,15 @@
 input {
     width: 25vw !important;
     left:7%;
-    height:6vh
+    height:6vh;
+    outline: none;
+    color: hsl(0, 1%, 17%);
+    border-radius: 10px;
+    border: 1px solid hsl(0, 1%, 21%);
+}
 
+form input:last-child{
+    margin-top: 15px;
 }
 
 .outer-auth, .outer-login {
@@ -142,5 +143,7 @@ button{
     font-weight: bold !important;
     width: 25vw;
     bottom:0;
+    background: blue;
+    margin-top: 10px;
 
 }

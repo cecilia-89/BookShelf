@@ -30,9 +30,9 @@
             </form>
 
 
-            <form action="" method="post" class='login-form'>{% csrf_token %}
-                <p><input name='username' type="text" class="user form-control"></p>
-                <p><input name='password' type="password" class="password form-control"></p>
+            <form action="" method="post"  class='login-form'>{% csrf_token %}
+                <input name='username' type="text" class="user form-control">
+                <input name='password' type="password" class="password form-control">
 
                 <button type='submit' name='submit' value="login" class='btn btn-primary'>
                     LOG IN
@@ -43,9 +43,6 @@
 
         </div>
 
-    <div class="login-footer">
-        gfhfk
-    </div>
 </div>
 
 {% endblock %}
