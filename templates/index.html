@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel='stylesheet' type='text/css' href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div>
+        <div class="image">
+
+        </div>
+
+        <div class="books">
+            <div>
+                {% for comic in comicBooks %}
+                <div>{{ comic.title }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                {% for action in actionBooks %}
+                <div>{{ action.title }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                {% for thriller in thrillerBooks %}
+                <div>{{ thriller.title }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                {% for contemporary in contemporaryBooks %}
+                <div>{{ contemporary.title }}</div>
+                {% endfor %}
+            </div>
+            <div>
+                {% for fantasy in fantasyBooks %}
+                <div>{{ fantasy.title }}</div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+</body>
+</html>

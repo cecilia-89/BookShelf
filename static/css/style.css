@@ -1,0 +1,17 @@
+* {
+    margin:0;
+    padding:0;
+}
+
+.image{
+    background-image: url(../images/woman-5351572_1280.png);
+    background-size: cover;
+    background-position: center;
+    width:100vw;
+    height:60vh;
+}
+
+.books {
+    
+    display:flex;
+}
