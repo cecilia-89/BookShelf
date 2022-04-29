@@ -40,3 +40,107 @@
 #book-wrapper div:nth-child(2){
     margin-left: 30px;
 }
+
+/* authentication styling */
+
+.authentication {
+    position:absolute;
+    left:34%;
+    top:15vh;
+    width:30vw;
+    box-shadow: 1px 3px 5px 3px hsl(0, 8%, 82%);
+
+}
+
+.auth-title {
+    border-bottom: 1px solid hsl(0, 5%, 76%);
+    color:black;
+    text-align: center;
+    font-family:'Brush Script MT';
+    font-weight: bold;
+    font-size: 1.5em;
+    height: 9vh;
+    line-height: 9vh;
+}
+
+
+.auth-header {
+    display:flex;
+}
+
+.auth-content {
+    position: relative;
+    height: 50vh;
+    width:30vw;
+}
+
+.login-form, .auth-form {
+    position: absolute;
+    left:35px;
+    top:40px;
+    transition:100ms opacity ease-in-out;
+    transform: translateX(10px);
+
+}
+
+.auth-form{
+    display:none;
+}
+
+
+.login-footer {
+    background: rgba(248, 245, 245, 0.808);
+    width: inherit;
+
+}
+
+.register, .login {
+
+    width:20vw;
+    height: 7vh;
+    text-align: center;
+    line-height: 7vh;
+    font-family:sans-serif;
+    border-bottom: 1px solid hsl(0, 5%, 76%);
+    font-weight: bold;
+
+}
+
+.login {
+
+    border-right: 1px solid hsl(0, 5%, 76%);
+
+}
+
+
+.register:hover, .login:hover {
+
+    background: rgba(248, 245, 245, 0.808);
+    cursor: pointer;
+}
+
+
+input {
+    width: 25vw !important;
+    left:7%;
+    height:6vh
+
+}
+
+.outer-auth, .outer-login {
+    text-align: center;
+}
+
+.outer-auth > a , .outer-login > a {
+    font-size: .8rem;
+}
+
+
+button{
+    position: relative;
+    font-size: .8rem !important;
+    font-weight: bold !important;
+    width: 25vw;
+    bottom:0;
+
+}

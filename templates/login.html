@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+{% load static%}
+{% block content %}
+
+<div class="authentication">
+    <div class="auth-title">
+        MYBLOG.NG
+    </div>
+    <div class="auth-header">
+        <div class="login" data-login>
+           LOG IN
+        </div>
+        <div class="register" data-register>
+            REGISTER
+        </div>
+    </div>
+
+    <div class="auth-content">
+            <form action="" method="post" class='auth-form'>{% csrf_token %}
+                <p>{{form.username}}</p>
+                <p>{{form.password1}}</p>
+                <p>{{form.password2}}</p>
+
+                <button type='submit' name='submit' value="signup" class='btn btn-primary'>
+                    SIGN UP
+                </button>
+
+                <div class="outer-auth" data-login=""><a href="javascript:void(0)">ALREADY HAVE AN ACCOUNT? LOGIN </a></div>
+
+            </form>
+
+
+            <form action="" method="post" class='login-form'>{% csrf_token %}
+                <p><input name='username' type="text" class="user form-control"></p>
+                <p><input name='password' type="password" class="password form-control"></p>
+
+                <button type='submit' name='submit' value="login" class='btn btn-primary'>
+                    LOG IN
+                </button>
+
+                <div class="outer-login"  data-register><a href="javascript:void(0)">DON'T HAVE AN ACCOUNT? REGISTER </a></div>
+            </form>
+
+        </div>
+
+    <div class="login-footer">
+        gfhfk
+    </div>
+</div>
+
+{% endblock %}
