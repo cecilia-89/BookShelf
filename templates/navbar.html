@@ -11,23 +11,28 @@
 
 		</div>
 
-	<div class="dropdown">
+	<div class="dropdown data-dropdown">
 
-				<a href="#" class="link">
+				<a href="#" data-dropdown-button class="link">
 					LIBRARY
 				</a>
-				
+
 				<div data-dropdown="" class="dropdown-info" >
-					No books in your library
+					{% for book in library %}
+					<div class="readlist">
+						<div><a href="{% url 'book' book_id=book.book.id%}"><img src="{{book.book.bookUrl}}" alt=""></a></div>
+						<div>{{book.book.title}}</div>
+						<button>ARCHIVE</button>
+					</div>
+					{% endfor %}
 				</div>
 
-
-				<a href="#" class="link">
+				<a href="#" data-dropdown-button class="link">
 					ARCHIVE
 				</a>
-				<!-- <div data-dropdown="" class="dropdown-" >
+				<div data-drop="" class="dropdown-info" >
 					No books in your archive
-				</div> -->
+				</div>
 
 
 

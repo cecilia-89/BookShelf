@@ -118,7 +118,7 @@ form input:last-child{
 }
 
 
-button{
+.auth-content button{
     position: relative;
     font-size: .8rem !important;
     font-weight: bold !important;
@@ -166,33 +166,61 @@ button{
     width:100vw;
 }
 
+.dropdown-info img{
+    width:60px;
+    height:100px;
+    object-fit: cover;
+    margin-left: 10px;
+}
+
+.readlist div:last-child {
+    width:100px;
+}
+
+.readlist {
+    position:relative;
+}
+
+.readlist button {
+    position: absolute;
+    width:90px;
+    height:20px;
+    top:30px;
+    right:90px;
+    background: #353091;
+    color: white;
+    font-weight: bold;
+    font-size: .6em;
+    border-radius: 10px;
+    border: 1px solid #353091
+}
+
 
 .dropdown-info {
     position:absolute;
-    top:36px;
+    top:34px;
     right:80px;
     border-radius: .25em;
     background:hsl(0, 0%, 100%);
     box-shadow: 0 2px 5px 0px rgba(0,0,0,.2);
     color: hsl(0, 4%, 26%);
-    opacity: 0;
+    opacity:0;
     transform:translateY(-10px);
     transition:150ms ease-in-out;
     font-size: 1rem;
     font-weight: 500 !important;
     z-index:1;
-    display:flex;
-    align-items: center;
     padding:5px;
 }
 
-.dropdown-info.active {
+
+.dropdown > .link:focus + .dropdown-info{
     opacity:1;
     transform: translateY(0);
 }
 
-.dropdown > .link:focus + .dropdown-info{
-    opacity:1;
+.readlist{
+    display:flex;
 }
 
 .genre img{
@@ -289,9 +317,6 @@ button{
     border-radius: 10px;
 }
 
-[data-dropdown]:hover{
-    cursor:pointer;
-}
 
 #book-wrapper {
     margin:100px 0 0 80px;

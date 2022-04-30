@@ -42,28 +42,6 @@ document.querySelectorAll('[data-register]').forEach(registerfunction => {
 })
 
 
-document.addEventListener('click', e => {
-    var dropdown = e.target.matches("[data-dropdown]")
-
-    const currentdropdown =  e.target.closest('[data-dropdown]')
-
-    if (dropdown) {
-    currentdropdown.classList.toggle('active')
-    }
-
-    if (!dropdown) {
-        currentdrop = document.querySelectorAll('[data-dropdown]').forEach(dropdown => dropdown.classList.remove('active'))
-
-    }
-
-	document.querySelectorAll('[data-dropdown].active').forEach(drop => {
-        if(drop === currentdropdown) return
-        drop.classList.remove('active')
-    })
-
-})
-
-
 
 var addToRead = document.querySelectorAll('.readlist');
 

@@ -1,3 +1,4 @@
+from matplotlib.style import library
 from .models import *
 
 def allBooks(request):
@@ -8,6 +9,10 @@ def allBooks(request):
         fantasyBooks = Book.objects.filter(fantasy_books=True).order_by('-pub_date')
         contemporaryBooks = Book.objects.filter(contemporary_books=True).order_by('-pub_date')
         thrillerBooks = Book.objects.filter(thriller_books=True).order_by('-pub_date')
+        library = Shelved.objects.all()
+
+        print(library)
+        print('yes')
 
 
         context = {
@@ -15,7 +20,8 @@ def allBooks(request):
            'actionBooks':actionBooks,
            'fantasyBooks':fantasyBooks,
            'contemporaryBooks':contemporaryBooks,
-           'thrillerBooks':thrillerBooks
+           'thrillerBooks':thrillerBooks,
+           'library':library
         }
 
         return context

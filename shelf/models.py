@@ -8,7 +8,7 @@ class Customer(models.Model):
     username = models.CharField(max_length=50, null=True,blank=True)
 
     def __str__(self):
-        return self.user.userName
+        return self.user.username
 
 class Category(models.Model):
     type = models.CharField(max_length=50, null=True,blank=True)
@@ -62,5 +62,5 @@ class Archive(models.Model):
 
 class Archived(models.Model):
     shelved = models.ForeignKey(Shelved, on_delete=CASCADE, null=True)
-    archive = models.ForeignKey(Archive, on_delete=CASCADE, null=True)
+    book = models.ForeignKey(Book, on_delete=CASCADE, null=True)
 
