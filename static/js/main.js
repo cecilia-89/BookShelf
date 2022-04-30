@@ -45,8 +45,6 @@ document.querySelectorAll('[data-register]').forEach(registerfunction => {
 document.addEventListener('click', e => {
     var dropdown = e.target.matches("[data-dropdown]")
 
-	console.log(dropdown);
-
     const currentdropdown =  e.target.closest('[data-dropdown]')
 
     if (dropdown) {
@@ -58,6 +56,11 @@ document.addEventListener('click', e => {
 
     }
 
+	document.querySelectorAll('[data-dropdown].active').forEach(drop => {
+        if(drop === currentdropdown) return
+        drop.classList.remove('active')
+    })
+
 })
 
 
@@ -68,11 +71,11 @@ addToRead.forEach(button => {
 
     button.addEventListener('click', function(){
 
-    var bookId = this.dataset.product
+    var bookId = this.dataset.bookid
     var action = this.dataset.action
-    console.log('bookId:', bookId, 'action:', action, 'User:', user);
+    console.log('bookId:', bookId, 'action:', action);
 
-    updatecart(productId, action);
+    updatecart(bookId, action);
 
 })
 

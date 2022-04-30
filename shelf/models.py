@@ -5,7 +5,7 @@ from django.db.models.deletion import CASCADE, SET_NULL
 # Create your models here.
 class Customer(models.Model):
     user = models.OneToOneField(User, on_delete=CASCADE)
-    userName = models.CharField(max_length=50, null=True,blank=True)
+    username = models.CharField(max_length=50, null=True,blank=True)
 
     def __str__(self):
         return self.user.userName

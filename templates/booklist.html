@@ -1,36 +1,44 @@
-{% load static %}
+{% extends 'index.html' %}
+{% load static%}
 
 {% block content %}
 {% include 'navbar.html' %}
 
     <div>
 
-		<h3>All books</h3>
-
         <div class="books">
+			<div>COMIC BOOKS</div>
             <div>
                 {% for comic in comicBooks|dictsort:"pub_date" %}
-                <div><img src="{{comic.bookUrl}}" alt=""></div>
+                <div><a href="{% url 'book' book_id=comic.id%}"><img src="{{comic.bookUrl}}" alt=""></a></div>
                 {% endfor %}
             </div>
+
+			<div>ACTION BOOKS</div>
             <div>
                 {% for action in actionBooks|dictsort:"pub_date" %}
-                <div><img src="{{action.bookUrl}}" alt=""></div>
+                <div><a href="{% url 'book' book_id=action.id%}"><img src="{{action.bookUrl}}" alt=""></a></div>
                 {% endfor %}
             </div>
+
+			<div>THRILLER BOOKS</div>
             <div>
                 {% for thriller in thrillerBooks|dictsort:"pub_date" %}
-                <div><img src="{{thriller.bookUrl}}" alt=""></div>
+                <div><a href="{% url 'book' book_id=thriller.id%}"><img src="{{thriller.bookUrl}}" alt=""></a></div>
                 {% endfor %}
             </div>
+
+			<div>CONTEMPORARY BOOKS</div>
             <div>
                 {% for contemporary in contemporaryBooks|dictsort:"pub_date" %}
-                <div><img src="{{contemporary.bookUrl}}" alt=""></div>
+                <div><a href="{% url 'book' book_id=contemporary.id%}"><img src="{{contemporary.bookUrl}}" alt=""></a></div>
                 {% endfor %}
             </div>
+
+			<div>FANTASY BOOKS</div>
             <div>
                 {% for fantasy in fantasyBooks|dictsort:"pub_date" %}
-                <div><img src="{{fantasy.bookUrl}}" alt=""></div>
+                <div><a href="{% url 'book' book_id=fantasy.id%}"><img src="{{fantasy.bookUrl}}" alt=""></a></div>
                 {% endfor %}
             </div>
         </div>
@@ -38,4 +46,4 @@
 
     </div>
 
-	{% endblock %}
+{% endblock %}

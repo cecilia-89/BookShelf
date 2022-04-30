@@ -60,7 +60,7 @@ def signout(request):
 def addRead(request):
 
     data = json.loads(request.body)
-    bookId = data['bookId']
+    bookId = data['bookid']
     action = data['action']
 
     customer = request.user.customer
