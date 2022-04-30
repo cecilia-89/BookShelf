@@ -15,7 +15,7 @@ Shows the information about each book. Author, Title, Description, category and 
 
 ### Extra
 
-*The navigation bar contains two components which display the shelf owners reading list and archive
+* The navigation bar contains two components which display the shelf owners reading list and archive
 
 * The login page where user authentication is carried out
 
