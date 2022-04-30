@@ -1,8 +1,10 @@
 from django.shortcuts import render
-from shelf.models import Book
+from shelf.models import Archive, Archived, Book, Bookshelf, Shelved
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from .forms import *
+from django.http.response import JsonResponse
+import json
 from django.contrib.auth import authenticate, login, logout
 
 # Create your views here
@@ -54,3 +56,39 @@ def signout(request):
     logout(request)
     return redirect('/auth')
 
+
+def addRead(request):
+
+    data = json.loads(request.body)
+    bookId = data['bookId']
+    action = data['action']
+
+    customer = request.user.customer
+    shelf = Bookshelf.objects.get(customer=customer)
+    book = Book.objects.get(id=bookId)
+    shelf, created = Bookshelf.objects.get_or_create(book=book, shelf=shelf)
+
+    if action =='move':
+        archived = Archived.objects.get(book=book)
+        archived.delete()
+
+    shelf.save()
+
+    if action == 'delete':
+        shelf.delete()
+
+
+def archived(request):
+    data = json.loads(request.body)
+    bookId = data['bookId']
+    action = data['action']
+
+    customer = request.user.customer
+    archive = Archive.objects.get(customer=customer)
+    book = Shelved.objects.get(id=bookId)
+    archived, created = Archive.objects.get_or_create(book=book, archive=archive)
+
+    archived.save()
+
+    if action == 'delete':
+        archived.delete()

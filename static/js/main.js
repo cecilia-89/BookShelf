@@ -40,3 +40,90 @@ document.querySelectorAll('[data-register]').forEach(registerfunction => {
     })
 
 })
+
+
+document.addEventListener('click', e => {
+    var dropdown = e.target.matches("[data-dropdown]")
+
+	console.log(dropdown);
+
+    const currentdropdown =  e.target.closest('[data-dropdown]')
+
+    if (dropdown) {
+    currentdropdown.classList.toggle('active')
+    }
+
+    if (!dropdown) {
+        currentdrop = document.querySelectorAll('[data-dropdown]').forEach(dropdown => dropdown.classList.remove('active'))
+
+    }
+
+})
+
+
+
+var addToRead = document.querySelectorAll('.readlist');
+
+addToRead.forEach(button => {
+
+    button.addEventListener('click', function(){
+
+    var bookId = this.dataset.product
+    var action = this.dataset.action
+    console.log('bookId:', bookId, 'action:', action, 'User:', user);
+
+    updatecart(productId, action);
+
+})
+
+})
+
+
+function updatecart(bookId, action){
+
+    var body = {'bookId':bookId, 'action':action};
+    $.ajax({
+        headers:{'X-CSRFToken':csrftoken},
+        type:'POST',
+        url:'/addRead/',
+        data:JSON.stringify(body),
+        success: function(){
+
+        }
+    })
+}
+
+
+
+
+
+var addToRead = document.querySelectorAll('.archive');
+
+addToRead.forEach(button => {
+
+    button.addEventListener('click', function(){
+
+    var bookId = this.dataset.product
+    var action = this.dataset.action
+    console.log('bookId:', bookId, 'action:', action, 'User:', user);
+
+    updatecart(productId, action);
+
+})
+
+})
+
+
+function updatecart(bookId, action){
+
+    var body = {'bookId':bookId, 'action':action};
+    $.ajax({
+        headers:{'X-CSRFToken':csrftoken},
+        type:'POST',
+        url:'/archived/',
+        data:JSON.stringify(body),
+        success: function(){
+
+        }
+    })
+}

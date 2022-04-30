@@ -1,17 +1,8 @@
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% block content %}
+{% include 'navbar.html' %}
 
-    <link rel='stylesheet' type='text/css' href="{% static 'css/style.css' %}">
-
-</head>
-<body>
     <div>
 
 		<h3>All books</h3>
@@ -19,32 +10,32 @@
         <div class="books">
             <div>
                 {% for comic in comicBooks|dictsort:"pub_date" %}
-                <div>{{ comic.title }}</div>
+                <div><img src="{{comic.bookUrl}}" alt=""></div>
                 {% endfor %}
             </div>
             <div>
                 {% for action in actionBooks|dictsort:"pub_date" %}
-                <div>{{ action.title }}</div>
+                <div><img src="{{action.bookUrl}}" alt=""></div>
                 {% endfor %}
             </div>
             <div>
                 {% for thriller in thrillerBooks|dictsort:"pub_date" %}
-                <div>{{ thriller.title }}</div>
+                <div><img src="{{thriller.bookUrl}}" alt=""></div>
                 {% endfor %}
             </div>
             <div>
                 {% for contemporary in contemporaryBooks|dictsort:"pub_date" %}
-                <div>{{ contemporary.title }}</div>
+                <div><img src="{{contemporary.bookUrl}}" alt=""></div>
                 {% endfor %}
             </div>
             <div>
                 {% for fantasy in fantasyBooks|dictsort:"pub_date" %}
-                <div>{{ fantasy.title }}</div>
+                <div><img src="{{fantasy.bookUrl}}" alt=""></div>
                 {% endfor %}
             </div>
         </div>
 
 
     </div>
-</body>
-</html>
+
+	{% endblock %}

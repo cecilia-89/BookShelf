@@ -40,38 +40,77 @@
     {% block content %}
     {% include 'navbar.html' %}
 
-    <div>
+    <div class="index-wrapper">
         <div class="image">
 
         </div>
 
-        <div class="books">
-            <div>
-                {% for comic in comicBooks|slice:":3" %}
-                <div>{{ comic.title }}</div>
-                {% endfor %}
-            </div>
-            <div>
-                {% for action in actionBooks|slice:":3" %}
-                <div>{{ action.title }}</div>
-                {% endfor %}
-            </div>
-            <div>
-                {% for thriller in thrillerBooks|slice:":3" %}
-                <div>{{ thriller.title }}</div>
-                {% endfor %}
-            </div>
-            <div>
-                {% for contemporary in contemporaryBooks|slice:":3" %}
+        <h2>RECENT RELEASES</h2>
 
-                <div>{{ contemporary.title }}</div>
-                {% endfor %}
-            </div>
+        <div class="genre">
+
             <div>
-                {% for fantasy in fantasyBooks|slice:":3" %}
-                <div>{{ fantasy.title }}</div>
+                <h3>COMICS</h3>
+                {% for comic in comicBooks|slice:":3" %}
+
+                <div>
+                    <div><a href="{% url 'book' book_id=comic.id%}"><img src="{{comic.bookUrl}}" alt=""></a></div>
+
+                        <div>{{comic.title}}</div>
+                        <div>By {{comic.author}}</div>
+
+                </div>
+
                 {% endfor %}
             </div>
+
+            <div>
+                <h3>ACTION</h3>
+                {% for action in actionBooks|slice:":3" %}
+                <div>
+                    <div><a href="{% url 'book' book_id=action.id%}"><img src="{{action.bookUrl}}" alt=""></a></div>
+                    <div>{{action.title}}</div>
+                    <div> By {{action.author}}</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div>
+                <h3>THILLER</h3>
+
+                    {% for thriller in thrillerBooks|slice:":3" %}
+                <div>
+                    <div><a href="{% url 'book' book_id=thriller.id%}"><img src="{{thriller.bookUrl}}" alt=""></a></div>
+                    <div>{{thriller.title}}</div>
+                    <div> By {{thriller.author}}</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div>
+                <h3>CONTEMPORARY</h3>
+
+                    {% for contemporary in contemporaryBooks|slice:":3" %}
+                <div>
+                    <div><a href="{% url 'book' book_id=contemporary.id%}"><img src="{{contemporary.bookUrl}}" alt=""></a></div>
+                    <div>{{contemporary.title}}</div>
+                    <div>By {{contemporary.author}}</div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div>
+                <h3>FANTASY</h3>
+
+                    {% for fantasy in fantasyBooks|slice:":3" %}
+                <div>
+                    <div><a href="{% url 'book' book_id=fantasy.id%}"><img src="{{fantasy.bookUrl}}" alt=""></a></div>
+                    <div>{{fantasy.title}}</div>
+                    <div>By {{fantasy.author}}</div>
+                </div>
+                {% endfor %}
+            </div>
+
         </div>
 
 
