@@ -34,8 +34,8 @@
 }
 
 .auth-title {
-    border-bottom: 1px solid hsl(0, 5%, 76%);
-    color:black;
+    border-bottom: 1px solid #4a43ca;
+    color:#4a43ca;
     text-align: center;
     font-family:'Brush Script MT';
     font-weight: bold;
@@ -76,14 +76,14 @@
     text-align: center;
     line-height: 7vh;
     font-family:sans-serif;
-    border-bottom: 1px solid hsl(0, 5%, 76%);
+    border-bottom: 1px solid #4a43ca;
     font-weight: bold;
 
 }
 
 .login {
 
-    border-right: 1px solid hsl(0, 5%, 76%);
+    border-right: 1px solid #4a43ca;
 
 }
 
@@ -102,7 +102,7 @@ input {
     outline: none;
     color: hsl(0, 1%, 17%);
     border-radius: 10px;
-    border: 1px solid hsl(0, 1%, 21%);
+
 }
 
 form input:last-child{
@@ -124,8 +124,9 @@ form input:last-child{
     font-weight: bold !important;
     width: 25vw;
     bottom:0;
-    background: blue;
+    background:#1d1963;
     margin-top: 10px;
+    border: 1px solid #1d1963;
 
 }
 
@@ -135,17 +136,34 @@ form input:last-child{
     font-size: 1.5em;
     color:#4a43ca;
     background: white;
-    height: 6vh;
     border-bottom:1px solid #4a43ca;
+    height:7vh;
+
+}
+
+.nav-wrapper{
+    position: relative;
+}
+
+.topic {
+    position:absolute;
+    left:20px;
+}
+
+.right-link{
     font-weight: bold;
     display:flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.right-link div {
+    margin-right:40px;
 }
 
 .nav-wrapper > div:last-child {
     font-size: 1em;
     background: hsl(243, 54%, 38%);
-    height: 4vh;
     font-weight: bold;
     display:flex;
     justify-content:flex-end;
@@ -157,6 +175,11 @@ form input:last-child{
     margin-right: 25px;
     text-decoration: none;
     color:white;
+}
+
+.welcome{
+    font-size: .8em;
+    font-weight: 100;
 }
 
 
@@ -198,9 +221,8 @@ form input:last-child{
 
 .dropdown-info {
     position:absolute;
-    top:34px;
-    right:80px;
     border-radius: .25em;
+    top:30px;
     background:hsl(0, 0%, 100%);
     box-shadow: 0 2px 5px 0px rgba(0,0,0,.2);
     color: hsl(0, 4%, 26%);
@@ -211,6 +233,23 @@ form input:last-child{
     font-weight: 500 !important;
     z-index:1;
     padding:5px;
+}
+
+.library  {
+
+    right:80px;
+
+}
+
+.welcome a {
+    font-size:.8em;
+    position:absolute;
+    top:22px;
+}
+
+.archive {
+    right:15px;
+
 }
 
 

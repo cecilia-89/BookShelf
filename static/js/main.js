@@ -1,3 +1,5 @@
+
+
 var login = document.querySelector('.login')
 var register = document.querySelector('.register')
 var registerform = document.querySelector('.auth-form')
@@ -49,27 +51,29 @@ addToRead.forEach(button => {
 
     button.addEventListener('click', function(){
 
-    var bookId = this.dataset.bookid
+    var bookid = this.dataset.bookid
     var action = this.dataset.action
-    console.log('bookId:', bookId, 'action:', action);
+    console.log('bookid:', bookid, 'action:', action);
 
-    updatecart(bookId, action);
-
-})
+    readList(bookid, action);
 
 })
 
+})
 
-function updatecart(bookId, action){
 
-    var body = {'bookId':bookId, 'action':action};
+
+
+function readList(bookid, action){
+
+    var body = {'bookid':bookid, 'action':action};
     $.ajax({
-        headers:{'X-CSRFToken':csrftoken},
+		headers:{'X-CSRFToken':csrftoken},
         type:'POST',
-        url:'/addRead/',
+        url:'/',
         data:JSON.stringify(body),
         success: function(){
-
+			console.log('success')
         }
     })
 }
@@ -95,9 +99,9 @@ addToRead.forEach(button => {
 })
 
 
-function updatecart(bookId, action){
+function updatecart(bookid, action){
 
-    var body = {'bookId':bookId, 'action':action};
+    var body = {'bookid':bookid, 'action':action};
     $.ajax({
         headers:{'X-CSRFToken':csrftoken},
         type:'POST',

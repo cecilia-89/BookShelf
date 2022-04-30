@@ -1,37 +1,96 @@
 <nav class='nav-wrapper'>
 
 		<div>
-			<div>
+			<div class="topic">
 				BOOKLOVER
 			</div>
 
-			<div>
-				WELCOME {{user|upper}}
+			<div class="right-link">
+
+				{% if user.is_authenticated %}
+				<div class="welcome">WELCOME {{user|upper}}<br>
+					<a href="{% url 'signout'%}">logout?</a>
+				</div>
+
+				<div>
+					<a href="{% url 'index' %}">
+						<ion-icon name="home-outline"></ion-icon>
+					</a>
+				</div>
+
+				<div>
+					<a href="{% url 'list'%}">
+						<ion-icon name="library-outline"></ion-icon>
+					</a>
+				</div>
+
+				{% else %}
+
+				<div class="welcome">WELCOME USER<br>
+					<a href="{% url 'signup'%}">Signup/login</a>
+				</div>
+
+				<div>
+					<a href="{% url 'signup' %}">
+						<ion-icon name="home-outline"></ion-icon>
+					</a>
+				</div>
+
+				<div>
+					<a href="{% url 'signup'%}">
+						<ion-icon name="library-outline"></ion-icon>
+					</a>
+				</div>
+
+
+
 			</div>
 
 		</div>
 
 	<div class="dropdown data-dropdown">
 
-				<a href="#" data-dropdown-button class="link">
+				<a href="#" data-dropdown class="link">
 					LIBRARY
 				</a>
 
-				<div data-dropdown="" class="dropdown-info" >
+				<div data-dropdown="" class="dropdown-info library" >
+					{% if library %}
+
 					{% for book in library %}
 					<div class="readlist">
 						<div><a href="{% url 'book' book_id=book.book.id%}"><img src="{{book.book.bookUrl}}" alt=""></a></div>
 						<div>{{book.book.title}}</div>
-						<button>ARCHIVE</button>
+						<button class="archive">ARCHIVE</button>
 					</div>
 					{% endfor %}
+
+					{% else %}
+
+					<div>No books in your library </div>
+
+					{% endif %}
 				</div>
 
 				<a href="#" data-dropdown-button class="link">
 					ARCHIVE
 				</a>
-				<div data-drop="" class="dropdown-info" >
-					No books in your archive
+				<div data-drop="" class="dropdown-info archive" >
+					{% if archived %}
+
+					{% for book in archived %}
+					<div class="readlist">
+						<div><a href="{% url 'book' book_id=book.book.id%}"><img src="{{book.book.bookUrl}}" alt=""></a></div>
+						<div>{{book.book.title}}</div>
+						<button class="archive">ARCHIVE</button>
+					</div>
+					{% endfor %}
+
+					{% else %}
+
+					<div>No books in your archive</div>
+
+					{% endif %}
 				</div>
 
 

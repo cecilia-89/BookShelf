@@ -17,7 +17,7 @@
 		<span>{{book.pub_date}}</span>
 		<span>{{book.category}}</span>
 
-		<button data-action data-bookId={{book.id}} class="readlist"> ADD TO LIBRARY</button>
+		<button type="submit" data-action data-bookId={{book.id}} class="readlist"> ADD TO LIBRARY</button>{% csrf_token%}
 	</div>
 
 </div>

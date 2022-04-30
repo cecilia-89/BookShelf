@@ -10,10 +10,7 @@ def allBooks(request):
         contemporaryBooks = Book.objects.filter(contemporary_books=True).order_by('-pub_date')
         thrillerBooks = Book.objects.filter(thriller_books=True).order_by('-pub_date')
         library = Shelved.objects.all()
-
-        print(library)
-        print('yes')
-
+        archived = Archived.objects.all()
 
         context = {
            'comicBooks':comicBooks,

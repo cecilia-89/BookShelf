@@ -6,6 +6,8 @@ from .forms import *
 from django.http.response import JsonResponse
 import json
 from django.contrib.auth import authenticate, login, logout
+from django.middleware.csrf import get_token
+
 
 # Create your views here
 
@@ -56,26 +58,38 @@ def signout(request):
     logout(request)
     return redirect('/auth')
 
-
 def addRead(request):
+
 
     data = json.loads(request.body)
     bookId = data['bookid']
     action = data['action']
 
+    print(bookId)
+    print(action)
+    print('yes')
+
     customer = request.user.customer
     shelf = Bookshelf.objects.get(customer=customer)
     book = Book.objects.get(id=bookId)
-    shelf, created = Bookshelf.objects.get_or_create(book=book, shelf=shelf)
+    shelved, created = Shelved.objects.get_or_create(book=book, shelf=shelf)
+
+
+    print(customer)
+    print(shelf)
+    print(book)
+
 
     if action =='move':
         archived = Archived.objects.get(book=book)
         archived.delete()
 
-    shelf.save()
+    shelved.save()
 
     if action == 'delete':
-        shelf.delete()
+        shelved.delete()
+
+    return JsonResponse('Item added to library',safe=False)
 
 
 def archived(request):
